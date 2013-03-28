@@ -22,10 +22,12 @@ namespace Insula.Logging
         }
 
         private LogEvent _logEvent;
-
         private string _message;
         private object[] _messageParameters;
         private object _data;
+
+
+        #region Static Members
 
         public static Action<Log> LogInit { get; set; }
 
@@ -44,6 +46,8 @@ namespace Insula.Logging
                 _logTarget = value;
             }
         }
+
+        #endregion
 
 
         #region Instantiate
