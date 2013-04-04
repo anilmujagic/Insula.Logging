@@ -9,7 +9,7 @@ namespace Insula.Logging.Targets.LogServer
 {
     public class LogServerTarget : ILogTarget
     {
-        public LogServerTarget(string url, string applicationKey)
+        public LogServerTarget(string url, string apiKey)
         {
             if (url.IsNullOrWhiteSpace()
                 || !Uri.IsWellFormedUriString(url, UriKind.Absolute)
@@ -18,20 +18,20 @@ namespace Insula.Logging.Targets.LogServer
                 throw new ArgumentException("Provide valid URL.");
             }
 
-            if (applicationKey.IsNullOrWhiteSpace())
+            if (apiKey.IsNullOrWhiteSpace())
             {
-                throw new ArgumentException("Provide valid Application Key.");
+                throw new ArgumentException("Provide valid API Key.");
             }
 
-            _applicationKey = applicationKey;
+            _apiKey = apiKey;
         }
 
         private Uri _uri;
-        private string _applicationKey;
+        private string _apiKey;
 
         public void Submit(LogEvent logEvent)
         {
-            var url = new Uri(_uri, "LogEvent/" + _applicationKey).ToString();
+            var url = new Uri(_uri, "LogEvent/" + _apiKey).ToString();
             var content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(logEvent), Encoding.UTF8, "application/json");
 
             var client = new HttpClient();
