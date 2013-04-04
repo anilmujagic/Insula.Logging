@@ -20,7 +20,7 @@ namespace Insula.Logging.Targets.LogServer
 
             if (apiKey.IsNullOrWhiteSpace())
             {
-                throw new ArgumentException("Provide valid API Key.");
+                throw new ArgumentException("Provide valid API key.");
             }
 
             _apiKey = apiKey;
