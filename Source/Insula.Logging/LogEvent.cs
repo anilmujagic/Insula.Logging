@@ -19,7 +19,7 @@ namespace Insula.Logging
         public string Context { get; set; }
         public string Reference { get; set; }
 
-        // Should be populated by application code in LogInit event
+        // Should be populated by application code in LogEventInit event
         public string ApplicationVersion { get; set; }
         public string Machine { get; set; }
         public string User { get; set; }

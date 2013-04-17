@@ -40,6 +40,7 @@
     <Compile Include="Log.cs" />
     <Compile Include="LogDataType.cs" />
     <Compile Include="LogEvent.cs" />
+    <Compile Include="LogEventBuilder.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
